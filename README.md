@@ -15,10 +15,6 @@ run:
 output:
 <code>
 ...
-depth=4
-pool_size=20
-...
-time cost = 8756
 KNIGHT b8c6 9.0
 PAWN e7e5 8.0
 PAWN d7d5 7.5
