@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>lee</groupId>
-    <artifactId>chess</artifactId>
+    <artifactId>search_chess_next_move</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>chess</name>
+    <name>search_chess_next_move</name>
     <url>http://maven.apache.org</url>
 
     <properties>
