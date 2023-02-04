@@ -34,22 +34,18 @@ public class Main {
         Data.init(fen);
 
         System.out.println(Data.game);
-        System.out.println("depth=" + Data.depth);
-        System.out.println("width=" + Data.width);
-        System.out.println("pool_size=" + Data.pool_size);
 
         Node root = new Node(Data.game);
         TreeUtil.build_tree(root);
 
-        int leaf_depth = 2;
-        for (int depth = 1; depth <= 4; depth++) {
+        for (int depth = 1; depth <= Data.depth; depth++) {
             ThreadUtil.batch_run(root.children);
 
             LogUtil.info("batch_run depth=" + depth);
 
-            int cut_depth = depth - leaf_depth;
+            int cut_depth = depth - Data.leaf_depth;
             if (cut_depth >= 0) {
-                int cut_width = (int) Math.ceil(16 / Math.pow(2, cut_depth));
+                int cut_width = (int) Math.ceil(Data.width / Math.pow(2, cut_depth));
                 cut_width = Math.max(cut_width, 3);
                 TreeUtil.cut_children(root, cut_depth, cut_width);
 
