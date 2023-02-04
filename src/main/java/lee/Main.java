@@ -1,22 +1,64 @@
 package lee;
 
+import com.github.bhlangonijr.chesslib.PieceType;
+import com.github.bhlangonijr.chesslib.move.Move;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Main {
+
+    private static void best_moves(List<Node> children) {
+        for (Node node : children.stream().filter(i -> "win".equals(i.get_result())).collect(Collectors.toList())) {
+            Move move = node.game.undoMove();
+            node.game.doMove(move);
+            PieceType pieceType = Data.game.getPiece(move.getFrom()).getPieceType();
+            System.out.println("checkmate!! --> " + pieceType + " " + move);
+        }
+
+        children = children.stream().sorted((i1, i2) -> Float.compare(i1.score, i2.score)).collect(Collectors.toList());
+        Collections.reverse(children);
+
+        for (int i = 0; i < Math.min(children.size(), 3); i++) {
+            Node node = children.get(i);
+            Move move = node.game.undoMove();
+            node.game.doMove(move);
+            PieceType pieceType = Data.game.getPiece(move.getFrom()).getPieceType();
+            System.out.println(pieceType + " " + move + " " + node.score);
+        }
+    }
 
     public static void main(String[] args) {
         String fen = args[0];
+        Data.init(fen);
 
-        System.out.println("fen=" + fen);
+        System.out.println(Data.game);
+        System.out.println("depth=" + Data.depth);
+        System.out.println("width=" + Data.width);
+        System.out.println("pool_size=" + Data.pool_size);
 
-        DataUtil.init(fen);
+        Node root = new Node(Data.game);
+        TreeUtil.build_tree(root);
 
-        System.out.println(DataUtil.board);
-        System.out.println("depth=" + DataUtil.depth);
-        System.out.println("pool_size=" + DataUtil.pool_size);
+        int leaf_depth = 2;
+        for (int depth = 1; depth <= 4; depth++) {
+            ThreadUtil.batch_run(root.children);
 
-        long s = System.currentTimeMillis();
-        ThreadUtil.batch_run();
-        System.out.println("time cost = " + (System.currentTimeMillis() - s));
+            LogUtil.info("batch_run depth=" + depth);
 
-        ThreadUtil.print_best_move();
+            int cut_depth = depth - leaf_depth;
+            if (cut_depth >= 0) {
+                int cut_width = (int) Math.ceil(16 / Math.pow(2, cut_depth));
+                cut_width = Math.max(cut_width, 3);
+                TreeUtil.cut_children(root, cut_depth, cut_width);
+
+                LogUtil.info("cut_children  cut_depth=" + cut_depth + " cut_width=" + cut_width);
+            }
+
+            TreeUtil.print_children_size(root, 0);
+
+            best_moves(root.children);
+        }
     }
 }
