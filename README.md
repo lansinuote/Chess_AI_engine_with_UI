@@ -8,7 +8,7 @@ build:
 <hr>
 
 run:
-<code>java -jar target/search_chess_next_move-1.0-SNAPSHOT.jar "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"</code>
+<code>java -jar -Xmx30000m target/search_chess_next_move-1.0-SNAPSHOT.jar "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"</code>
 
 <hr>
 
