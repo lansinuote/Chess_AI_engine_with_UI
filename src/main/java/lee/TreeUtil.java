@@ -69,7 +69,7 @@ public class TreeUtil {
         node.children = node.children.subList(0, Math.min(width, node.children.size()));
 
         width = width * 2;
-        width = Math.min(width, Data.width);
+        width = Math.min(width, 16);
         for (Node i : node.children) {
             cut_children(i, depth - 1, width);
         }
