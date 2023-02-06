@@ -82,11 +82,11 @@ public class Node {
                     continue;
                 }
                 if (game.squareAttackedBy(square, Data.color) > 0L) {
-                    score += piece_score * 0.1F;
+                    score += piece_score * 0.05F;
                 }
 
                 if (game.squareAttackedBy(square, Data.color.flip()) > 0L) {
-                    score -= piece_score * 0.1F;
+                    score -= piece_score * 0.05F;
                 }
             }
         }
@@ -131,9 +131,9 @@ public class Node {
             game.setSideToMove(game.getSideToMove().flip());
 
             if (game.getSideToMove() == Data.color) {
-                score += move_score_curr - move_score_next;
+                score += (move_score_curr - move_score_next) * 0.2F;
             } else {
-                score -= move_score_curr - move_score_next;
+                score -= (move_score_curr - move_score_next) * 0.2F;
             }
         }
     }
