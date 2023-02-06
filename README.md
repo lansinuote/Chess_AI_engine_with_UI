@@ -57,7 +57,7 @@ The <code>KNIGHT g8f6 -6.0</code> in output means KNIGHT from g8 to f6 is the be
 
 The program will show 3 "best moves". So you will see 3 recommended moves, then go to next layer, until <code>lee.Data.depth</code>
 
-Start from the 3rd floor program will do cut, means remove some obviously bad move for save CPU and RAM resources.
+Start from the 3rd floor program will do cut, means remove some obviously bad moves for save CPU and RAM resources.
 
 You can modify depth, width and min pool size in <code>lee.Data</code> to suit your own CPU and RAM.
 
