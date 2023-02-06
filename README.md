@@ -28,4 +28,4 @@ The program will show 3 "best moves". So you will see 3 recommended moves.
 
 You can modify depth and thred pool size in <code>lee.DataUtil</code> to suit your own CPU.
 
-The program does not always perform well. It is just a simple small program, with performance equivalent to 1400 points of chess.com.
+The program does not always perform well. It is just a simple small program, with performance equivalent to 1800 points of chess.com.
