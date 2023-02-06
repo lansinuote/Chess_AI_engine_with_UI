@@ -14,7 +14,7 @@ public class Main {
             Move move = node.game.undoMove();
             node.game.doMove(move);
             PieceType pieceType = Data.game.getPiece(move.getFrom()).getPieceType();
-            System.out.println("checkmate!! --> " + pieceType + " " + move);
+            LogUtil.info("checkmate!! --> " + pieceType + " " + move);
         }
 
         children = children.stream().sorted((i1, i2) -> Float.compare(i1.score, i2.score)).collect(Collectors.toList());
@@ -25,7 +25,7 @@ public class Main {
             Move move = node.game.undoMove();
             node.game.doMove(move);
             PieceType pieceType = Data.game.getPiece(move.getFrom()).getPieceType();
-            System.out.println(pieceType + " " + move + " " + node.score);
+            LogUtil.info(pieceType + " " + move + " " + node.score);
         }
     }
 
@@ -43,13 +43,13 @@ public class Main {
 
             LogUtil.info("batch_run depth=" + depth);
 
-            int cut_depth = depth - Data.leaf_depth;
+            int cut_depth = depth - 2;
             if (cut_depth >= 0) {
                 int cut_width = (int) Math.ceil(Data.width / Math.pow(2, cut_depth));
                 cut_width = Math.max(cut_width, 3);
                 TreeUtil.cut_children(root, cut_depth, cut_width);
 
-                LogUtil.info("cut_children  cut_depth=" + cut_depth + " cut_width=" + cut_width);
+                LogUtil.debug("cut_children  cut_depth=" + cut_depth + " cut_width=" + cut_width);
             }
 
             TreeUtil.print_children_size(root, 0);

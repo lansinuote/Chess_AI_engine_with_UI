@@ -22,6 +22,7 @@ public class ThreadUtil {
     }
 
     public static void batch_run(List<Node> children) {
+        LogUtil.debug("ThreadUtil.batch_run children.size=" + children.size());
         if (children.size() < Data.min_pool_size) {
             for (Node i : children) {
                 batch_run(i.children);

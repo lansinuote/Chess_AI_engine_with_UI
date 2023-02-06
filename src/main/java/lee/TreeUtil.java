@@ -28,7 +28,7 @@ public class TreeUtil {
     }
 
     public static void print_tree(Node node, String prefix) {
-        System.out.println(prefix + " " + node.score + " " + (node.game.getSideToMove() != Data.color ? "me" : "op"));
+        LogUtil.info(prefix + " " + node.score + " " + (node.game.getSideToMove() != Data.color ? "me" : "op"));
         prefix += "-";
         for (Node i : node.children) {
             print_tree(i, prefix);
@@ -96,7 +96,7 @@ public class TreeUtil {
     }
 
     public static void print_children_size(Node node, int depth) {
-        System.out.println(depth + " - " + node.children.size());
+        LogUtil.debug(depth + " - " + node.children.size());
         if (!node.children.isEmpty()) {
             print_children_size(node.children.get(0), depth + 1);
         }

@@ -45,10 +45,9 @@ public class Data {
 
     public static Board game = new Board();
     public static Side color;
-    public static int width = 4;
-    public static int depth = 16;
+    public static int depth = 4;
+    public static int width = 16;
     public static int min_pool_size = 8;
-    public static int leaf_depth = 2;
 
     public static void init(String fen) {
         game.loadFromFen(fen);

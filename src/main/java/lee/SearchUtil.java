@@ -9,7 +9,7 @@ public class SearchUtil {
 
     private static String get_result(Board board) {
         if (board.isMated()) {
-            if (board.getSideToMove() == DataUtil.color) {
+            if (board.getSideToMove() == Data.color) {
                 return "loss";
             }
             return "win";
@@ -23,11 +23,11 @@ public class SearchUtil {
     }
 
     private static String get_check(Board board) {
-        if (board.squareAttackedBy(board.getKingSquare(DataUtil.color.flip()), DataUtil.color) > 0L) {
+        if (board.squareAttackedBy(board.getKingSquare(Data.color.flip()), Data.color) > 0L) {
             return "check";
         }
 
-        if (board.squareAttackedBy(board.getKingSquare(DataUtil.color), DataUtil.color.flip()) > 0L) {
+        if (board.squareAttackedBy(board.getKingSquare(Data.color), Data.color.flip()) > 0L) {
             return "be_check";
         }
         return null;
@@ -42,10 +42,10 @@ public class SearchUtil {
                 continue;
             }
 
-            float piece_score = DataUtil.piece_score.get(piece.getPieceType());
-            float cell_score = DataUtil.cell_score.get(piece.getPieceSide()).get(piece.getPieceType()).get(i);
+            float piece_score = Data.piece_score.get(piece.getPieceType());
+            float cell_score = Data.cell_score.get(piece.getPieceSide()).get(piece.getPieceType()).get(i);
 
-            if (piece.getPieceSide() == DataUtil.color) {
+            if (piece.getPieceSide() == Data.color) {
                 score += piece_score + cell_score;
             } else {
                 score -= piece_score + cell_score;
@@ -88,7 +88,7 @@ public class SearchUtil {
             return get_score(board);
         }
 
-        boolean me = board.getSideToMove() == DataUtil.color;
+        boolean me = board.getSideToMove() == Data.color;
         float best_score = Float.MAX_VALUE;
         if (me) {
             best_score = -best_score;

@@ -16,7 +16,5 @@ public class TT {
         Node node = new Node(Data.game);
 
         node.set_score();
-
-        System.out.println(node.score);
     }
 }
