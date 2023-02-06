@@ -27,7 +27,7 @@ We are playing black side.
 
 <hr>
 
-output may be like follow:
+output maybe like follow:
 <code>
 11:35:28.151 - info - batch_run depth=1
 11:35:28.155 - info - KNIGHT g8f6 -6.0
