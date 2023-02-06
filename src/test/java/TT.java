@@ -7,14 +7,14 @@ public class TT {
 
     @Test
     public void aa() {
-        Main.main(new String[]{"rn3kn1/pp2bq2/2p1r3/4Qp1p/3PP1b1/8/PPPB1PPP/R3KB1R w KQ - 1 17"});
+        //7k/8/8/8/8/8/rr6/6K1 b - - 4 79
+        Main.main(new String[]{"7k/8/8/8/8/8/rr6/6K1 b - - 4 79"});
     }
 
     @Test
-    public void aab() {
-        Data.init("4r1bk/3B3p/8/4p1p1/2p5/8/P4PPP/2R3K1 b - - 0 34");
+    public void bb(){
+        Data.init("1rbr2k1/1pppnpp1/p1n1p2p/4Pq2/2PP4/PQ2BN1P/2P1BPP1/R4RK1 b - - 1 14");
         Node node = new Node(Data.game);
-
         node.set_score();
     }
 }

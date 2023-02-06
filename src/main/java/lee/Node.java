@@ -2,6 +2,7 @@ package lee;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Piece;
+import com.github.bhlangonijr.chesslib.PieceType;
 import com.github.bhlangonijr.chesslib.Square;
 
 import java.util.ArrayList;
@@ -33,18 +34,8 @@ public class Node {
         return null;
     }
 
-    public String get_check() {
-        if (game.squareAttackedBy(game.getKingSquare(Data.color.flip()), Data.color) > 0L) {
-            return "check";
-        }
-
-        if (game.squareAttackedBy(game.getKingSquare(Data.color), Data.color.flip()) > 0L) {
-            return "be_check";
-        }
-        return null;
-    }
-
     public void set_score() {
+        //set score by children
         if (!children.isEmpty()) {
             List<Float> children_score = children.stream().map(i -> i.score).collect(Collectors.toList());
 
@@ -59,54 +50,91 @@ public class Node {
 
         score = 0.0F;
 
-        for (int i = 0; i < 64; i++) {
-            Piece piece = game.getPiece(Square.squareAt(i));
-            if (piece == Piece.NONE) {
-                continue;
+        //piece and cell score
+        {
+            for (int i = 0; i < 64; i++) {
+                Square square = Square.squareAt(i);
+                Piece piece = game.getPiece(square);
+
+                //cell under control score.
+                if (piece == Piece.NONE) {
+                    if (game.squareAttackedBy(square, Data.color) > 0L) {
+                        score += 0.2F;
+                    }
+
+                    if (game.squareAttackedBy(square, Data.color.flip()) > 0L) {
+                        score -= 0.2F;
+                    }
+                    continue;
+                }
+
+                float piece_score = Data.piece_score.get(piece.getPieceType());
+                float cell_score = Data.cell_score.get(piece.getPieceSide()).get(piece.getPieceType()).get(i);
+
+                if (piece.getPieceSide() == Data.color) {
+                    score += piece_score + cell_score;
+                } else {
+                    score -= piece_score + cell_score;
+                }
+
+                //piece has root or attacking score.
+                if (piece.getPieceType() == PieceType.KING) {
+                    continue;
+                }
+                if (game.squareAttackedBy(square, Data.color) > 0L) {
+                    score += piece_score * 0.1F;
+                }
+
+                if (game.squareAttackedBy(square, Data.color.flip()) > 0L) {
+                    score -= piece_score * 0.1F;
+                }
             }
-
-            float piece_score = Data.piece_score.get(piece.getPieceType());
-            float cell_score = Data.cell_score.get(piece.getPieceSide()).get(piece.getPieceType()).get(i);
-
-            if (piece.getPieceSide() == Data.color) {
-                score += piece_score + cell_score;
-            } else {
-                score -= piece_score + cell_score;
-            }
         }
 
-        String result = get_result();
+        //score by result.
+        {
+            String result = get_result();
 
-        if ("win".equals(result)) {
-            score += 10000.0F;
-        }
-
-        if ("loss".equals(result)) {
-            score -= 10000.0F;
-        }
-
-        if ("draw".equals(result)) {
-            if (score > 0.0F) {
-                score -= 10000.0F;
-            } else {
+            if ("win".equals(result)) {
                 score += 10000.0F;
             }
+
+            if ("loss".equals(result)) {
+                score -= 10000.0F;
+            }
+
+            if ("draw".equals(result)) {
+                if (score > 0.0F) {
+                    score -= 10000.0F;
+                } else {
+                    score += 10000.0F;
+                }
+            }
         }
 
-        String check = get_check();
+        //if check + or - score.
+        {
+            if (game.squareAttackedBy(game.getKingSquare(Data.color.flip()), Data.color) > 0L) {
+                score += 5.00F;
+            }
 
-        if ("check".equals(check)) {
-            score += 5.00F;
+            if (game.squareAttackedBy(game.getKingSquare(Data.color), Data.color.flip()) > 0L) {
+                score -= 5.00F;
+            }
         }
 
-        if ("be_check".equals(check)) {
-            score -= 5.00F;
-        }
+        //freedom score.
+        {
+            int move_score_curr = game.legalMoves().size();
+            game.setSideToMove(game.getSideToMove().flip());
+            int move_score_next = game.legalMoves().size();
+            game.setSideToMove(game.getSideToMove().flip());
 
-        /*if (game.getSideToMove() == Data.color) {
-            score += game.legalMoves().size();
-        } else {
-            score -= game.legalMoves().size();
-        }*/
+            if (game.getSideToMove() == Data.color) {
+                score += move_score_curr - move_score_next;
+            } else {
+                score -= move_score_curr - move_score_next;
+            }
+        }
     }
 }
