@@ -1,4 +1,4 @@
-<h2>A chess ai engine with UI.</h2>
+<h2>A chess AI engine with UI.</h2>
 
 This project includes two java projects. The 1st part is the computing engine and the 2nd part is UI.
 
