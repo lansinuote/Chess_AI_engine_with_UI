@@ -2,11 +2,15 @@
 java:8
 
 <h2>build</h2>
-without UI:<code>mvn package -f engine/pom.xml</code>. If you want to use UI:<code>mvn install -f engine/pom.xml</code>. The UI part please see 
-<a href="https://github.com/lansinuote/Chess_AI_engine_with_UI/tree/main/ui">ui</a>
+Without UI:<code>mvn package -f engine/pom.xml</code>
+<br>
+If you want to use UI:<code>mvn install -f engine/pom.xml</code>
+<br>
+The UI part please see <a href="https://github.com/lansinuote/Chess_AI_engine_with_UI/tree/main/ui">ui</a>
 
 <h2>run</h2>
 <code>java -jar -Xmx30000m engine/target/engine-1.0-SNAPSHOT.jar "r1bqkbnr/pppp1ppp/2n1p3/8/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 1 3"</code>
+<br>
 
 The fen means the game borad like follow:
 
