@@ -17,4 +17,4 @@ Fill in your fen, then click submit to search best move.
 You can modify depth, width and pool size to suit your own CPU and RAM.
 
 <h2>quote</h2>
-The webpage of this project quotes some contents of <link>https://github.com/lhartikk/simple-chess-ai</link>, thank you!
+The webpage of this project quotes some contents of https://github.com/lhartikk/simple-chess-ai, thank you!
