@@ -23,8 +23,8 @@ Fill in your fen, then click submit to search best move.
 You can modify depth, width and pool size to suit your own CPU and RAM.
 
 <h2>Why Java not Python?</h2>
-Better multithreading support
+Better multithreading support.
 <br>
-SpringBoot is better than Flask
+SpringBoot is better than Flask.
 <br>
-I like Jupyter Notebook, But Maven is more suitable for complex projects
+I like Jupyter Notebook, But Maven is more suitable for complex projects.
