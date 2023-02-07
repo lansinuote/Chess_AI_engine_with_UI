@@ -1,16 +1,10 @@
-environment:<code>java:8</code>
+<h2>environment</h2>
+java:8
 
-<hr>
+<h2>build</h2>
+without UI:<code>mvn package</code>. If you want to use UI:<code>mvn install</code>. The UI part please see <link>https://github.com/lansinuote/search_chess_next_move/tree/main/ui</link>.
 
-build:<code>mvn package</code>
-
-<br>
-
-If you want to use UI:<code>mvn install</code>
-
-<hr>
-
-run:
+<h2>run</h2>
 <code>java -jar -Xmx30000m target/search_chess_next_move-1.0-SNAPSHOT.jar "r1bqkbnr/pppp1ppp/2n1p3/8/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 1 3"</code>
 
 The fen means the game borad like follow:
@@ -28,8 +22,7 @@ R  N  B  Q  K  B  .  R
 
 We are playing black side.
 
-<hr>
-
+<h2>output</h2>
 output maybe like follow:
 <code>
 11:35:28.151 - info - batch_run depth=1
@@ -50,7 +43,7 @@ output maybe like follow:
 11:36:28.223 - info - BISHOP f8b4 6.5
 </code>
 
-<hr>
+<h2>output explain</h2>
 
 The program is to search from shallow to deep.
 
