@@ -2,9 +2,9 @@
 
 This project includes two java projects. The 1st part is the computing engine and the 2nd part is UI.
 
-The engine part please see <link>https://github.com/lansinuote/search_chess_next_move/tree/main/engine</link>
+The engine part please see <a href="https://github.com/lansinuote/Chess_AI_engine_with_UI/tree/main/engine">engine</link>
 
-The UI part please see <link>https://github.com/lansinuote/search_chess_next_move/tree/main/ui</link>
+The UI part please see <a href="https://github.com/lansinuote/Chess_AI_engine_with_UI/tree/main/ui">ui</link>
 
 At depth of 4 and width of 16, it is about 1800 points of chess.com
 
