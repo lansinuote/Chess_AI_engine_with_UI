@@ -1,2 +1,4 @@
-/.idea
-/target
+/engine/.idea
+/engine/target
+/ui/.idea
+/ui/target

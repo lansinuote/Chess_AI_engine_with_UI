@@ -22,7 +22,7 @@ public class ThreadUtil {
     }
 
     public static void batch_run(List<Node> children) {
-        if (children.size() < Data.min_pool_size) {
+        if (children.size() < Data.pool_size) {
             for (Node i : children) {
                 batch_run(i.children);
                 i.set_score();

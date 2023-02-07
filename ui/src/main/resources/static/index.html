@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="lib/chessboard-0.3.0.min.css">
+    <style>
+        .board {
+            width: 400px;
+            margin: auto
+        }
+
+        .info {
+            width: 400px;
+            margin: auto;
+        }
+
+        .move-history {
+            max-height: 100px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+<div id="board" class="board"></div>
+<div class="info">
+    <table>
+        <tr>
+            <td>fen:</td>
+            <td><input id="fen" type="text" value="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></td>
+        </tr>
+        <tr>
+            <td>depth:</td>
+            <td><input id="depth" type="text" value="3"></td>
+        </tr>
+        <tr>
+            <td>width:</td>
+            <td><input id="width" type="text" value="16"></td>
+        </tr>
+        <tr>
+            <td>pool_size:</td>
+            <td><input id="pool_size" type="text" value="8"></td>
+        </tr>
+        <tr>
+            <td>leaf_depth:</td>
+            <td><input id="leaf_depth" type="text" value="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="submit">submit</button></td>
+        </tr>
+    </table>
+    <span>Positions evaluated: <span id="position-count"></span></span>
+    <br>
+    <br>
+    <div id="move-history" class="move-history">
+    </div>
+</div>
+<script src="lib/jquery-3.2.1.min.js"></script>
+<script src="lib/chessboard-0.3.0.min.js"></script>
+<script src="lib/chess.js"></script>
+<script src="index.js"></script>
+<script>
+</script>
+</body>
+</html>
