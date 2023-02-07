@@ -5,7 +5,7 @@ java:8
 without UI:<code>mvn package -f engine/pom.xml</code>. If you want to use UI:<code>mvn install -f engine/pom.xml</code>. The UI part please see <link>https://github.com/lansinuote/search_chess_next_move/tree/main/ui</link>.
 
 <h2>run</h2>
-<code>java -jar -Xmx30000m target/search_chess_next_move-1.0-SNAPSHOT.jar "r1bqkbnr/pppp1ppp/2n1p3/8/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 1 3"</code>
+<code>java -jar -Xmx30000m engine/target/engine-1.0-SNAPSHOT.jar "r1bqkbnr/pppp1ppp/2n1p3/8/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 1 3"</code>
 
 The fen means the game borad like follow:
 
