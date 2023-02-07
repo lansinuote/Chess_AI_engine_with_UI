@@ -6,6 +6,6 @@ The engine part please see <link>https://github.com/lansinuote/search_chess_next
 
 The UI part please see <link>https://github.com/lansinuote/search_chess_next_move/tree/main/ui</link>
 
-At a depth of 4 and a width of 16, it is about 1800 points of chess.com
+At depth of 4 and width of 16, it is about 1800 points of chess.com
 
 <b>Please don't use it for cheating. Please respect your opponent and play fair!</b>
