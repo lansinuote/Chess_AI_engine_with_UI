@@ -10,7 +10,7 @@ step 2:Build UI:<code>mvn package -f ui/pom.xml</code>
 <code>java -jar -Xmx30000m ui/target/ui-0.0.1-SNAPSHOT.jar</code>
 
 <h2>visit</h2>
-Open your browser and visit:<code>http://127.0.0.1:8080</code>
+Open your browser and visit:http://127.0.0.1:8080
 <br>
 Fill in your fen, then click submit to search best move.
 <br>
