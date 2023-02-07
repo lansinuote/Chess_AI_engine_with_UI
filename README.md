@@ -2,8 +2,7 @@ environment:<code>java:8</code>
 
 <hr>
 
-build:
-<code>mvn package</code>
+build:<code>mvn package</code>
 
 <hr>
 
