@@ -1,4 +1,17 @@
-<img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demonstration.gif">
+<table>
+  <tr>
+    <td>AI vs AI</td>
+    <td>AI vs Human</td>
+    <td>Swich Side</td>
+    <td>Play from FEN</td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_ai_vs_ai.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_ai_vs_human.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_swich_side.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_play_from_fen.gif"></td>
+  </tr>
+</table>
 
 <h2>A chess AI engine with UI.</h2>
 
