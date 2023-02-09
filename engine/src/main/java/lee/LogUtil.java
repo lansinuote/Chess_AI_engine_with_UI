@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class LogUtil {
     private static final DateFormat format = new SimpleDateFormat("HH:mm:ss.SSS");
-    public static final String level = "debug";
+    public static final String level = "info";
 
 
     public static void log(String level, String text) {
