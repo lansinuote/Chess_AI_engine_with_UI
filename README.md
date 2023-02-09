@@ -6,10 +6,10 @@
     <td>Play from FEN</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_ai_vs_ai.gif"></td>
-    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_ai_vs_human.gif"></td>
-    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_swich_side.gif"></td>
-    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/demo_play_from_fen.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/gifs/1.ai_vs_ai.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/gifs/2.ai_vs_human.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/gifs/3.swich_side.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/lansinuote/Chess_AI_engine_with_UI/main/gifs/4.play_from_fen.gif"></td>
   </tr>
 </table>
 
